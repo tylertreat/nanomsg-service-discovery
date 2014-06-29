@@ -16,9 +16,6 @@ def start_discovery(port, deadline, interval):
     discovery = ServiceDiscovery(port, deadline=deadline)
     discovery.bind()
 
-    def discover():
-        discovery.discoverd(interval)
-
     print 'Starting service discovery [port: %s, deadline: %s, interval: %s]' \
         % (port, deadline, interval)
 
