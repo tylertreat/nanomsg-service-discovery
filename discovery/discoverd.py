@@ -16,8 +16,7 @@ def start_discovery(port, deadline, interval):
         % (port, deadline, interval)
 
     while True:
-        discovery.discover()
-        print discovery.services
+        print discovery.discover()
         time.sleep(interval / 1000)
 
 

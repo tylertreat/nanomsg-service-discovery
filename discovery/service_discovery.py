@@ -1,4 +1,5 @@
 from collections import defaultdict
+import random
 
 from nanomsg import NanoMsgAPIError
 from nanomsg import Socket
@@ -20,7 +21,7 @@ class ServiceDiscovery(object):
 
     def discover(self):
         if not self.socket.is_open():
-            return
+            return self.services
 
         self.services = defaultdict(set)
         self.socket.send('service query')
@@ -33,6 +34,16 @@ class ServiceDiscovery(object):
 
             service, address = response.split('|')
             self.services[service].add(address)
+
+        return self.services
+
+    def resolve(self, service):
+        providers = self.services[service]
+
+        if not providers:
+            return None
+
+        return random.choice(tuple(providers))
 
     def close(self):
         self.socket.close()
