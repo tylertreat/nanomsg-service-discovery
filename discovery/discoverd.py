@@ -1,8 +1,5 @@
 import os
-
-import gevent
-from gevent import monkey
-monkey.patch_all()
+import time
 
 from service_discovery import ServiceDiscovery
 
@@ -21,7 +18,7 @@ def start_discovery(port, deadline, interval):
     while True:
         discovery.discover()
         print discovery.services
-        gevent.sleep(interval / 1000)
+        time.sleep(interval / 1000)
 
 
 if __name__ == '__main__':

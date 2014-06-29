@@ -1,2 +1,1 @@
-gevent
 git+https://github.com/tonysimpson/nanomsg-python.git
