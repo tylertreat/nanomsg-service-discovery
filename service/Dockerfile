@@ -14,6 +14,6 @@ RUN ldconfig
 ADD . .
 RUN pip install -Ur requirements.txt
 
-EXPOSE 8080
+EXPOSE 9000
 
 ENTRYPOINT ["python", "serviced.py"]
