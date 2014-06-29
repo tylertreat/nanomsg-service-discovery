@@ -30,7 +30,7 @@ class ServiceDiscovery(object):
             except NanoMsgAPIError:
                 break
 
-            service, address = response.split(' ')
+            service, address = response.split('|')
             self.services[service].add(address)
 
     def close(self):
