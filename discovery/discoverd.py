@@ -1,5 +1,4 @@
 import os
-import sys
 
 import gevent
 from gevent import monkey
@@ -29,15 +28,6 @@ if __name__ == '__main__':
     port = int(os.environ.get('PORT', DEFAULT_PORT))
     deadline = int(os.environ.get('DEADLINE', DEFAULT_DEADLINE))
     interval = int(os.environ.get('INTERVAL', DEFAULT_INTERVAL))
-
-    if len(sys.argv) > 1:
-        port = int(sys.argv[1])
-
-    if len(sys.argv) > 2:
-        deadline = int(sys.argv[2])
-
-    if len(sys.argv) > 3:
-        interval = int(sys.argv[3])
 
     start_discovery(port, deadline, interval)
 
