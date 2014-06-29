@@ -22,6 +22,7 @@ class ServiceDiscovery(object):
         if not self.socket.is_open():
             return
 
+        self.services = defaultdict(set)
         self.socket.send('service query')
 
         while True:
