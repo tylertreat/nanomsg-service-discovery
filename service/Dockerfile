@@ -14,6 +14,13 @@ RUN ldconfig
 ADD . .
 RUN pip install -Ur requirements.txt
 
+ENV DISCOVERY_HOST localhost
+ENV DISCOVERY_PORT 5555
+ENV SERVICE_NAME service
+ENV SERVICE_HOST localhost
+ENV SERVICE_PORT 9000
+ENV SERVICE_PROTOCOL tcp
+
 EXPOSE 9000
 
 ENTRYPOINT ["python", "serviced.py"]
