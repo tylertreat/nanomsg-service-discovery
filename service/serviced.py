@@ -1,4 +1,5 @@
 import os
+from threading import Thread
 
 from nanomsg import REP
 from nanomsg import RESPONDENT
@@ -50,10 +51,8 @@ if __name__ == '__main__':
     service_address = '%s://%s:%s' % (service_protocol, service_host,
                                       service_port)
 
-    from threading import Thread
     Thread(target=register_service, args=(service_name, service_address,
                                           discovery_host,
                                           discovery_port)).start()
 
     start_service(service_name, service_protocol, service_port)
-
